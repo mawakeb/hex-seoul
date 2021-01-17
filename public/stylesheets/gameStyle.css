@@ -1,0 +1,215 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #333232;
+
+    background-image: url(../images/borders.png);
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-position: 7.5% -86%;
+    background-size: 80%;
+}
+
+#grid {
+    position: relative;
+    z-index: 1;
+    width: 52%;
+    margin-top: -0.7%;
+    margin-left: 4%;
+    padding: 0;
+}
+
+#grid li {
+    list-style-type: none;
+    display: grid;
+    position: relative;
+    float: left;
+    width: 8%;
+    padding: 4.5% 0;
+    transform: rotate(-60deg) skewY(30deg);
+    background: #fd005f;
+    overflow: hidden;
+    visibility: hidden;
+    margin: 0.2%;
+}
+
+#grid li * {
+    visibility: visible;
+}
+
+#grid li .hexagon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #c8c8c8;
+    transform: skewY(-30deg) rotate(60deg);
+    overflow: hidden;
+    cursor: pointer;
+   
+}
+
+#grid li .hexagon:not(.blue):not(.red):hover  {
+    background: #333232;
+}
+
+#grid li:nth-child(n+12){
+    margin-top: -2%;
+    margin-bottom: -2%;
+    transform: translateX(50%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+23){
+    margin-top: 0.2%;
+    margin-bottom: 0.2%;
+    transform: translateX(100%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+34){
+    margin-top: -2%;
+    margin-bottom: -2%;
+    transform: translateX(150%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+45){
+    margin-top: 0.2%;
+    margin-bottom: 0.2%;
+    transform: translateX(200%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+56){
+    margin-top: -2%;
+    margin-bottom: -2%;
+    transform: translateX(250%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+67){
+    margin-top: 0.2%;
+    margin-bottom: 0.2%;
+    transform: translateX(300%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+78){
+    margin-top: -2%;
+    margin-bottom: -2%;
+    transform: translateX(350%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+89){
+    margin-top: 0.2%;
+    margin-bottom: 0.2%;
+    transform: translateX(400%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+100){
+    margin-top: -2%;
+    margin-bottom: -2%;
+    transform: translateX(450%) rotate(-60deg) skewY(30deg);
+}
+#grid li:nth-child(n+111){
+    margin-top: 0.2%;
+    margin-bottom: 0.2%;
+    transform: translateX(500%) rotate(-60deg) skewY(30deg);
+}
+
+.hexagon.B::before, .hexagon.B::after {
+    position: absolute;
+    margin-top: 18%;
+    margin-left: 9.5%;
+    content: '';
+    width: 80%;
+    height: 72%;
+    background-color:#08b6b6;
+    border-radius: 50%;
+    cursor: not-allowed;
+    animation: mark ease-in 1s;
+} 
+
+.hexagon.R::before, .hexagon.R::after {
+    position: absolute;
+    margin-top: 18%;
+    margin-left: 9.5%;
+    content: '';
+    width: 80%;
+    height: 72%;
+    background-color:#fa6464;
+    border-radius: 50%;
+    cursor: not-allowed;
+    animation: mark ease-in 1s;
+}
+
+@keyframes mark {
+    20% {
+        transform: rotate3d(0, 1, 0, 180deg);
+    }
+    40%, 100% {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}
+
+.turn {
+    margin-left: 70%;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.turn.R::after{
+    content: "OPPONENT's TURN";
+    color: #08b6b6;
+}
+
+.turn.B::after{
+    content: "OPPONENT's TURN";
+    color: #fa6464;
+}
+
+.turn.R.yes::after{
+    content: "YOUR TURN";
+    color: #fa6464
+}
+
+.turn.B.yes::after{
+    content: "YOUR TURN";
+    color: #08b6b6
+}
+
+.timeelapsedtext{
+    margin-top: 3%;
+    margin-left: 73%;
+    display: flex;
+    justify-content: center;
+    color: #08b6b6;
+    font-size: 200%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.timeelapsed{
+    margin-left: 81%;
+    display: flex;
+    justify-content: center;
+    color: #08b6b6;
+    font-size: 200%;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: zoom-in;
+}
+
+.timeelapsed:active {
+    font-weight: bolder;
+}
+  
+.leaveButton {
+    margin-left: 87%;
+    margin-right: 20%;
+    background-color: #333232;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fa6464;
+    font-size: 200%;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+}
+
+.leaveButton:hover {
+    color: #c8c8c8;
+}

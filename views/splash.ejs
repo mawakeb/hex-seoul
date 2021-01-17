@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SPLASH HEX SEOUL</title>
+    <link rel="stylesheet" href="./stylesheets/splashStyle.css">
+    <link rel="icon" type="png" href="./images/fabicon.png">
+  </head>
+  <body background="./images/skyline.png" alt="Seoul skyline" >
+    <main>
+      <section id="top">
+          <h1 class='title'> <p class="title1">HEX &nbsp;</p><p class="title2">SEOUL</p></h1>
+          <div class="resolution">YOUR SCREEN HAS A RESOLUTION THAT IS TOO LOW FOR THE GAME</div>
+          <form action="/play" method="get">
+            <button class='play' type="submit">PLAY</button>
+          </form>
+            <button class="help" id='help' onclick="togglePopup()">HELP</button>
+      </section>
+      <div>
+      <ul class='stats'>
+        <li><div class='gamesInitialized'> <%= gamesInitialized %> games initialized</div></li>
+        <li><div class='gamesOngoing'> <%= gamesOngoing %> games ongoing</div></li>
+        <li><div class='gamesCompleted'> <%= gamesCompleted %> games completed</div></li>
+      </ul>
+      </div>
+      <div class='background-fill'></div>
+      <div>
+        <img class = 'plane' src ="./images/plane.png" alt="plane">
+      </div>
+    </main>
+    <div class="popup" id="popup">
+        <div class="popupContent">
+            <p>The aim of the game is to form a line that connects the opposite sides of the color. 
+            A piece may only be placed in an empty hexagon.
+            Please do not refresh the page during a game as that will lead to aborting the currentgame and joining a new one.</p>
+        </div>
+    </div>
+    <script src="./javascripts/splashScript.js" defer></script>
+  </body>
+</html>

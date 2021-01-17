@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/gameStyle.css">
+    <link rel="icon" type="png" href="./images/fabicon.png">
+    <title>HEX SEOUL</title>
+</head>
+<body>
+    <div class="board" id="board">
+        <ul class="clear" id="grid">
+            <li><div class="hexagon" id="0111" data-hexagon></div></li>
+            <li><div class="hexagon" id="0211" data-hexagon></div></li>
+            <li><div class="hexagon" id="0311" data-hexagon></div></li>
+            <li><div class="hexagon" id="0411" data-hexagon></div></li>
+            <li><div class="hexagon" id="0511" data-hexagon></div></li>
+            <li><div class="hexagon" id="0611" data-hexagon></div></li>
+            <li><div class="hexagon" id="0711" data-hexagon></div></li>
+            <li><div class="hexagon" id="0811" data-hexagon></div></li>
+            <li><div class="hexagon" id="0911" data-hexagon></div></li>
+            <li><div class="hexagon" id="1011" data-hexagon></div></li>
+            <li><div class="hexagon" id="1111" data-hexagon></div></li>
+            <li><div class="hexagon" id="0110" data-hexagon></div></li>
+            <li><div class="hexagon" id="0210" data-hexagon></div></li>
+            <li><div class="hexagon" id="0310" data-hexagon></div></li>
+            <li><div class="hexagon" id="0410" data-hexagon></div></li>
+            <li><div class="hexagon" id="0510" data-hexagon></div></li>
+            <li><div class="hexagon" id="0610" data-hexagon></div></li>
+            <li><div class="hexagon" id="0710" data-hexagon></div></li>
+            <li><div class="hexagon" id="0810" data-hexagon></div></li>
+            <li><div class="hexagon" id="0910" data-hexagon></div></li>
+            <li><div class="hexagon" id="1010" data-hexagon></div></li>
+            <li><div class="hexagon" id="1110" data-hexagon></div></li>
+            <li><div class="hexagon" id="0109" data-hexagon></div></li>
+            <li><div class="hexagon" id="0209" data-hexagon></div></li>
+            <li><div class="hexagon" id="0309" data-hexagon></div></li>
+            <li><div class="hexagon" id="0409" data-hexagon></div></li>
+            <li><div class="hexagon" id="0509" data-hexagon></div></li>
+            <li><div class="hexagon" id="0609" data-hexagon></div></li>
+            <li><div class="hexagon" id="0709" data-hexagon></div></li>
+            <li><div class="hexagon" id="0809" data-hexagon></div></li>
+            <li><div class="hexagon" id="0909" data-hexagon></div></li>
+            <li><div class="hexagon" id="1009" data-hexagon></div></li>
+            <li><div class="hexagon" id="1109" data-hexagon></div></li>
+            <li><div class="hexagon" id="0108" data-hexagon></div></li>
+            <li><div class="hexagon" id="0208" data-hexagon></div></li>
+            <li><div class="hexagon" id="0308" data-hexagon></div></li>
+            <li><div class="hexagon" id="0408" data-hexagon></div></li>
+            <li><div class="hexagon" id="0508" data-hexagon></div></li>
+            <li><div class="hexagon" id="0608" data-hexagon></div></li>
+            <li><div class="hexagon" id="0708" data-hexagon></div></li>
+            <li><div class="hexagon" id="0808" data-hexagon></div></li>
+            <li><div class="hexagon" id="0908" data-hexagon></div></li>
+            <li><div class="hexagon" id="1008" data-hexagon></div></li>
+            <li><div class="hexagon" id="1108" data-hexagon></div></li>
+            <li><div class="hexagon" id="0107" data-hexagon></div></li>
+            <li><div class="hexagon" id="0207" data-hexagon></div></li>
+            <li><div class="hexagon" id="0307" data-hexagon></div></li>
+            <li><div class="hexagon" id="0407" data-hexagon></div></li>
+            <li><div class="hexagon" id="0507" data-hexagon></div></li>
+            <li><div class="hexagon" id="0607" data-hexagon></div></li>
+            <li><div class="hexagon" id="0707" data-hexagon></div></li>
+            <li><div class="hexagon" id="0807" data-hexagon></div></li>
+            <li><div class="hexagon" id="0907" data-hexagon></div></li>
+            <li><div class="hexagon" id="1007" data-hexagon></div></li>
+            <li><div class="hexagon" id="1107" data-hexagon></div></li>
+            <li><div class="hexagon" id="0106" data-hexagon></div></li>
+            <li><div class="hexagon" id="0206" data-hexagon></div></li>
+            <li><div class="hexagon" id="0306" data-hexagon></div></li>
+            <li><div class="hexagon" id="0406" data-hexagon></div></li>
+            <li><div class="hexagon" id="0506" data-hexagon></div></li>
+            <li><div class="hexagon" id="0606" data-hexagon></div></li>
+            <li><div class="hexagon" id="0706" data-hexagon></div></li>
+            <li><div class="hexagon" id="0806" data-hexagon></div></li>
+            <li><div class="hexagon" id="0906" data-hexagon></div></li>
+            <li><div class="hexagon" id="1006" data-hexagon></div></li>
+            <li><div class="hexagon" id="1106" data-hexagon></div></li>
+            <li><div class="hexagon" id="0105" data-hexagon></div></li>
+            <li><div class="hexagon" id="0205" data-hexagon></div></li>
+            <li><div class="hexagon" id="0305" data-hexagon></div></li>
+            <li><div class="hexagon" id="0405" data-hexagon></div></li>
+            <li><div class="hexagon" id="0505" data-hexagon></div></li>
+            <li><div class="hexagon" id="0605" data-hexagon></div></li>
+            <li><div class="hexagon" id="0705" data-hexagon></div></li>
+            <li><div class="hexagon" id="0805" data-hexagon></div></li>
+            <li><div class="hexagon" id="0905" data-hexagon></div></li>
+            <li><div class="hexagon" id="1005" data-hexagon></div></li>
+            <li><div class="hexagon" id="1105" data-hexagon></div></li>
+            <li><div class="hexagon" id="0104" data-hexagon></div></li>
+            <li><div class="hexagon" id="0204" data-hexagon></div></li>
+            <li><div class="hexagon" id="0304" data-hexagon></div></li>
+            <li><div class="hexagon" id="0404" data-hexagon></div></li>
+            <li><div class="hexagon" id="0504" data-hexagon></div></li>
+            <li><div class="hexagon" id="0604" data-hexagon></div></li>
+            <li><div class="hexagon" id="0704" data-hexagon></div></li>
+            <li><div class="hexagon" id="0804" data-hexagon></div></li>
+            <li><div class="hexagon" id="0904" data-hexagon></div></li>
+            <li><div class="hexagon" id="1004" data-hexagon></div></li>
+            <li><div class="hexagon" id="1104" data-hexagon></div></li>
+            <li><div class="hexagon" id="0103" data-hexagon></div></li>
+            <li><div class="hexagon" id="0203" data-hexagon></div></li>
+            <li><div class="hexagon" id="0303" data-hexagon></div></li>
+            <li><div class="hexagon" id="0403" data-hexagon></div></li>
+            <li><div class="hexagon" id="0503" data-hexagon></div></li>
+            <li><div class="hexagon" id="0603" data-hexagon></div></li>
+            <li><div class="hexagon" id="0703" data-hexagon></div></li>
+            <li><div class="hexagon" id="0803" data-hexagon></div></li>
+            <li><div class="hexagon" id="0903" data-hexagon></div></li>
+            <li><div class="hexagon" id="1003" data-hexagon></div></li>
+            <li><div class="hexagon" id="1103" data-hexagon></div></li>
+            <li><div class="hexagon" id="0102" data-hexagon></div></li>
+            <li><div class="hexagon" id="0202" data-hexagon></div></li>
+            <li><div class="hexagon" id="0302" data-hexagon></div></li>
+            <li><div class="hexagon" id="0402" data-hexagon></div></li>
+            <li><div class="hexagon" id="0502" data-hexagon></div></li>
+            <li><div class="hexagon" id="0602" data-hexagon></div></li>
+            <li><div class="hexagon" id="0702" data-hexagon></div></li>
+            <li><div class="hexagon" id="0802" data-hexagon></div></li>
+            <li><div class="hexagon" id="0902" data-hexagon></div></li>
+            <li><div class="hexagon" id="1002" data-hexagon></div></li>
+            <li><div class="hexagon" id="1102" data-hexagon></div></li>
+            <li><div class="hexagon" id="0101" data-hexagon></div></li>
+            <li><div class="hexagon" id="0201" data-hexagon></div></li>
+            <li><div class="hexagon" id="0301" data-hexagon></div></li>
+            <li><div class="hexagon" id="0401" data-hexagon></div></li>
+            <li><div class="hexagon" id="0501" data-hexagon></div></li>
+            <li><div class="hexagon" id="0601" data-hexagon></div></li>
+            <li><div class="hexagon" id="0701" data-hexagon></div></li>
+            <li><div class="hexagon" id="0801" data-hexagon></div></li>
+            <li><div class="hexagon" id="0901" data-hexagon></div></li>
+            <li><div class="hexagon" id="1001" data-hexagon></div></li>
+            <li><div class="hexagon" id="1101" data-hexagon></div></li>
+            
+        </ul>
+        <audio id ='sound' preload="auto">
+            <source src='./audio/place.mp3'>
+        </audio>
+    </div>
+    <div class="time" id="time">
+        <p class="timeelapsedtext" id="timeelapsedtext">TIME ELAPSED<p>
+        <p class="timeelapsed" id='timeelapsed'>00:00</p>
+        <br><br><br><br>
+    </div>
+    <br><br>
+    <div class="turn" data-turn></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <section id =”leave”>
+        <form action="/" method="get">
+            <button class="leaveButton" type="submit" onclick="return confirm('ARE YOU SURE?');" >LEAVE<br>GAME</button>
+        </form>
+     </section>   
+     <script src="./javascripts/interactions.js" defer></script>
+     <script src="./javascripts/messages.js" defer></script>
+     <script src="./javascripts/stopwatch.js" defer></script>
+</body>
+</html>
