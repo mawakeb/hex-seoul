@@ -13,6 +13,10 @@ body {
     background-size: 80%;
 }
 
+.grid.disable {
+    pointer-events: none;
+}
+
 #grid {
     position: relative;
     z-index: 1;
@@ -149,6 +153,11 @@ body {
     justify-content: center;
     font-size: 2rem;
     font-family: 'Courier New', Courier, monospace;
+    color: #c8c8c8;
+}
+
+.turn.wait::after {
+    content: "WAITING FOR OPPONENT" ;
 }
 
 
@@ -164,12 +173,20 @@ body {
 
 .turn.R.yes::after{
     content: "YOUR TURN";
-    color: #fa6464
+    color: #fa6464;
 }
 
 .turn.B.yes::after{
     content: "YOUR TURN";
-    color: #08b6b6
+    color: #08b6b6;
+}
+
+.turn.won::after {
+    content: "YOU WON";
+}
+
+.turn.lost::after {
+    content: "YOU LOST";
 }
 
 .timeelapsedtext{

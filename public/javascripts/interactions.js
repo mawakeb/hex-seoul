@@ -1,4 +1,5 @@
 var audio = document.getElementById('sound');
+var timerInterval;
 
 
 /* constructor of game state */
@@ -20,11 +21,32 @@ function GameState(socket) {
 
   this.setPlaying = function (s) {
     this.isPlaying = s;
+    //when game starts
+    if (s){
+      this.turnElement.classList.remove("wait");
+      this.turnElement.classList.add(this.playerType);
+      stopwatch();
+      document.getElementById("grid").classList.remove("disable");
+      //set turn to true for red player
+      if(this.playerType == "R") this.setTurn("true");
+    } 
+    //when game ends
+      else {
+        if (this.turnElement.classList.contains("yes")) {
+          this.turnElement.classList.remove("yes");
+        }
+        this.turnElement.classList.remove(this.playerType);
+        document.getElementById("grid").classList.add("disable");
+        clearInterval(timerInterval);
+
+        //show state of game
+        if (this.playerType == this.winner) this.turnElement.classList.add("won");
+        else this.turnElement.classList.add("lost");
+      }
   };
 
   this.setPlayerType = function (p) {
     this.playerType = p;
-    this.turnElement.classList.add(p);
   };
 
   this.isTurn = function () {
@@ -119,11 +141,11 @@ function GameState(socket) {
     if (this.winner != null) {
 
       this.isPlaying = false;
-      alert("YOU WON!");
 
       //send win message  
       socket.send(JSON.stringify(Messages.O_GAME_WON_BY));
       socket.close();
+      alert("YOU WON!");
     }
 
 
@@ -131,8 +153,7 @@ function GameState(socket) {
 }
 
 function Board(gs) {
-  
-    if(gs.getPlayerType() == "R") gs.setTurn("true");
+
     const hexagonElements = document.querySelectorAll('[data-hexagon]');
     
     Array.from(hexagonElements).forEach(function (hexagon) {
@@ -158,12 +179,36 @@ function Board(gs) {
   
 }
 
+//funtion to start measuring time
+function stopwatch(s) {
+
+  var elapsedTimeText = document.getElementById('timeelapsed');
+  var startTime = performance.now();
+
+  timerInterval = setInterval(function printTime() {
+  elapsedTime = performance.now() - startTime;
+  elapsedTimeText.innerText = timeToString(elapsedTime);
+  }, 1000);
+
+  //convert given time (s) to readable string
+  var timeToString = function (time) {
+    time /= 1000;
+  let ss = Math.floor(time%60);
+  time -= ss;
+  let mm = Math.floor(time/60);
+
+  let formattedMM = mm.toString().padStart(2, "0");
+  let formattedSS = ss.toString().padStart(2, "0");
+
+  return formattedMM.toString() + ':' + formattedSS.toString();
+  }
+}
+
 //set everything up, including the WebSocket
 (function setup() {
   var socket = new WebSocket(location.origin.replace('http', 'ws'));
 
   var gs = new GameState(socket);
-  var board = new Board(gs);
 
   socket.onmessage = function (event) {
     let incomingMsg = JSON.parse(event.data);
@@ -173,7 +218,6 @@ function Board(gs) {
       gs.setPlayerType(incomingMsg.data); //should be "R" or "B"
         
       if (gs.getPlayerType()=="R") {
-          gs.setTurn(true);
           alert("WAITING FOR OPPONENT...");
         }
     }
@@ -181,6 +225,7 @@ function Board(gs) {
     //start game
     if (incomingMsg.type == Messages.T_GAME_STARTED) {
       gs.setPlaying(true);
+      var board = new Board(gs);
       alert("THE GAME HAS STARTED!");
     }
 
@@ -202,8 +247,8 @@ function Board(gs) {
 
     //alert player when opponent won
     if (incomingMsg.type == Messages.T_GAME_WON_BY) {
-        alert("YOU LOST");
         gs.setPlaying(false);
+        alert("YOU LOST");
         
     }
 
@@ -216,8 +261,8 @@ function Board(gs) {
   //server sends a close event only if the game was aborted from some side
   socket.onclose = function () {
     if (gs.whoWon() == null) {
-      alert("GAME WAS ABORTED BY OPPONENT");
       gs.setPlaying(false);
+      alert("GAME WAS ABORTED BY OPPONENT");
     }
   };
 
