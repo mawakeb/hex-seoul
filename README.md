@@ -12,7 +12,6 @@ To start the game, execute the following steps in the terminal:
 
 ```
 cd HexSeoul
-npm install
 npm start
 ```
 

@@ -1,6 +1,5 @@
 var express = require("express");
 var http = require("http");
-var https = require("https");
 var websocket = require("ws");
 
 var port = process.env.PORT || 3000
@@ -18,8 +17,7 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", indexRouter);
 app.get("/play", indexRouter);
 
-//var server = http.createServer(app);
-var server = https.createServer(app);
+var server = http.createServer(app);
 const wss = new websocket.Server({ server });
 
 var websockets = {}
